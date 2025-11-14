@@ -47,10 +47,22 @@
     @keyframes blink {
       50% { opacity: 0; }
     }
+    .domain-heading {
+      font-size: 4rem;        /* ~4x normal size */
+      text-align: center;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 600px) {
+      .domain-heading {
+        font-size: 2.5rem;    /* smaller on mobile so it fits */
+      }
+    }
   </style>
 </head>
 <body>
   <main class="terminal" aria-label="Domain for sale: onchaincheckout.com">
+    <div class="domain-heading">onchaincheckout.com</div>
     <pre>+==================================================================+
 |                    onchaincheckout.com for sale                  |
 +==================================================================+
@@ -69,17 +81,17 @@
 
 +------------------------------------------------------------------+
 
- <span class="blink">_</span>
+  Awaiting incoming transmission<span class="blink">_</span>
 </pre>
   </main>
 
   <!-- Email obfuscation script -->
   <script>
     (function () {
-      // TODO: change "yourname" to the part of your email before the @
-      var user = "futureproofdomains";          // e.g. "sales"  → sales@onchaincheckout.com
-      var domain = "gmail"; // part between @ and .com
-      var tld = "com";                // top-level domain
+      // Change only these three if you ever move email/provider
+      var user = "futureproofdomains"; // part before @
+      var domain = "gmail";            // part between @ and .com
+      var tld = "com";                 // top-level domain
 
       var email = user + "@" + domain + "." + tld;
       var slot = document.getElementById("email-slot");
@@ -91,4 +103,3 @@
   </script>
 </body>
 </html>
-
