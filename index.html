@@ -52,7 +52,7 @@
 <body>
   <main class="terminal" aria-label="Domain for sale: onchaincheckout.com">
     <pre>+==================================================================+
-|                     onchaincheckout.com for sale                 |
+|                    onchaincheckout.com for sale                  |
 +==================================================================+
 
  STATUS       :  FOR SALE
@@ -73,7 +73,7 @@
 +------------------------------------------------------------------+
   To make an offer or purchase at the asking price, email:
 
-      >>> <a href="mailto:your-email@example.com">your-email@example.com</a>
+      >>> <span id="email-slot"></span>
 
   Please include "onchaincheckout.com" in the subject line.
 
@@ -82,5 +82,23 @@
  Press any key to initiate checkout<span class="blink">_</span>
 </pre>
   </main>
+
+  <!-- Email obfuscation script -->
+  <script>
+    (function () {
+      // TODO: change "yourname" to the part of your email before the @
+      var user = "yourname";          // e.g. "sales"  → sales@onchaincheckout.com
+      var domain = "onchaincheckout"; // part between @ and .com
+      var tld = "com";                // top-level domain
+
+      var email = user + "@" + domain + "." + tld;
+      var slot = document.getElementById("email-slot");
+
+      if (slot) {
+        slot.innerHTML = '<a href="mailto:' + email + '">' + email + '</a>';
+      }
+    })();
+  </script>
 </body>
 </html>
+
