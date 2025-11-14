@@ -48,14 +48,15 @@
       50% { opacity: 0; }
     }
     .domain-heading {
-      font-size: 4rem;        /* ~4x normal size */
+      font-size: 4rem;        /* big headline */
       text-align: center;
       margin-bottom: 1.5rem;
       letter-spacing: 0.08em;
+      text-shadow: 0 0 8px #0f0, 0 0 16px #0f0;
     }
     @media (max-width: 600px) {
       .domain-heading {
-        font-size: 2.5rem;    /* smaller on mobile so it fits */
+        font-size: 2.5rem;    /* fit on small screens */
       }
     }
   </style>
@@ -85,19 +86,29 @@
 </pre>
   </main>
 
-  <!-- Email obfuscation script -->
+  <!-- Email obfuscation + clickable terminal -->
   <script>
     (function () {
-      // Change only these three if you ever move email/provider
+      // Email pieces (change here if you ever move provider)
       var user = "futureproofdomains"; // part before @
       var domain = "gmail";            // part between @ and .com
       var tld = "com";                 // top-level domain
 
       var email = user + "@" + domain + "." + tld;
       var slot = document.getElementById("email-slot");
+      var terminal = document.querySelector(".terminal");
 
+      // Inject clickable email link
       if (slot) {
         slot.innerHTML = '<a href="mailto:' + email + '">' + email + '</a>';
+      }
+
+      // Make whole terminal clickable to open mail client
+      if (terminal) {
+        terminal.style.cursor = "pointer";
+        terminal.addEventListener("click", function () {
+          window.location.href = "mailto:" + email;
+        });
       }
     })();
   </script>
