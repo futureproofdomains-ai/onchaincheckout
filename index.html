@@ -24,15 +24,18 @@
       min-height: 100vh;
     }
     .terminal {
+      width: 100%;
       max-width: 80ch;
       border: 1px solid #0f0;
       padding: 1.5rem 2rem;
       box-shadow: 0 0 24px rgba(0, 255, 0, 0.4);
       background: radial-gradient(circle at top left, #002800, #000000);
+      overflow-x: auto; /* allow horizontal scroll on small screens */
     }
     pre {
       margin: 0;
       white-space: pre;
+      overflow-x: auto; /* belt-and-braces horizontal scroll */
     }
     a {
       color: #0ff;
@@ -48,15 +51,27 @@
       50% { opacity: 0; }
     }
     .domain-heading {
-     
+      font-size: 4rem;
       text-align: center;
       margin-bottom: 1.5rem;
       letter-spacing: 0.08em;
       text-shadow: 0 0 8px #0f0, 0 0 16px #0f0;
     }
+
+    /* Mobile tweaks */
     @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .terminal {
+        padding: 1rem;
+        max-width: 100%;
+      }
+      pre {
+        font-size: 0.8rem; /* smaller text so more fits */
+      }
       .domain-heading {
-        font-size: 2.5rem;    /* fit on small screens */
+        font-size: 2.2rem; /* still big, but fits on phones */
       }
     }
   </style>
